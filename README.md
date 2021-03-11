@@ -8,7 +8,10 @@ Making https://github.com/iovisor/kubectl-trace work in OpenShift 4.x
 Use source to build:
 https://github.com/iovisor/kubectl-trace#source
 
-Move the binary to a `PATH` directory.
+Move the binary to `PATH` directory.
+
+For additional details about kubectl with plugins review:
+https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/
 
 #### Container
 
@@ -41,3 +44,4 @@ oc trace run --imagename=quay.io/jcallen/trace-runner:4.7 --serviceaccount=kubec
   * https://github.com/brendangregg/bpf-perf-tools-book
   * https://github.com/iovisor/bpftrace/tree/master/tools
 
+* Only 4.7 (RHCOS based from RHEL 8.3) works, why?
