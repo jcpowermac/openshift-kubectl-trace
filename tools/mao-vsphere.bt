@@ -1,0 +1,14 @@
+#!/usr/bin/env bpftrace
+
+uprobe:/proc/$container_pid/exe:"github.com/vmware/govmomi/session.(*Manager).SessionIsActive",
+uprobe:/proc/$container_pid/exe:"github.com/openshift/machine-api-operator/pkg/controller/vsphere/session.GetOrCreate",
+uprobe:/proc/$container_pid/exe:"github.com/vmware/govmomi.NewClient"
+{
+        @[probe] = count();
+}
+
+interval:s:600
+{
+        exit();
+}
+
